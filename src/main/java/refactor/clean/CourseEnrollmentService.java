@@ -13,10 +13,35 @@ import refactor.common.exception.EnrollmentConflictException;
 import refactor.common.exception.InvalidEntityException;
 import refactor.common.exception.NotEnrolledException;
 
+/**
+ * Course enrollment service after the refactoring lab.
+ *
+ * <p>Compared with {@code refactor.baseline.EnrollSvc}, this class has no
+ * duplicated guard clause, no magic number, no console output, meaningful
+ * names, extracted helpers and complete contract documentation. The observable
+ * behaviour (same exceptions for the same situations, same enrollment set)
+ * is unchanged.
+ *
+ * <p><b>Class invariant</b>: no (student, course) pair appears twice and the
+ * enrolled count of every course never exceeds {@code course.maxCapacity()}.
+ *
+ * @author Student
+ */
 public final class CourseEnrollmentService {
 
     private final List<EnrollmentRecord> enrollments = new ArrayList<>();
 
+    /**
+     * Enrolls a student into a course.
+     *
+     * @param student the student to enroll, must not be null
+     * @param course the target course, must not be null
+     * @throws InvalidEntityException if {@code student} or {@code course} is null
+     * @throws EnrollmentConflictException if the student already enrolled this course
+     * @throws CourseFullException if the course has no free seat left
+     * @effects appends a new {@link EnrollmentRecord} for the pair
+     * @modifies this
+     */
     public void enroll(Student student, Course course) {
         requireEntity(student, "student");
         requireEntity(course, "course");
@@ -26,6 +51,16 @@ public final class CourseEnrollmentService {
         checkRep();
     }
 
+    /**
+     * Drops a course previously selected by the student.
+     *
+     * @param student the student, must not be null
+     * @param course the course to drop, must not be null
+     * @throws InvalidEntityException if {@code student} or {@code course} is null
+     * @throws NotEnrolledException if the pair is not part of the enrollment set
+     * @effects removes the matching {@link EnrollmentRecord}
+     * @modifies this
+     */
     public void drop(Student student, Course course) {
         requireEntity(student, "student");
         requireEntity(course, "course");
@@ -34,6 +69,13 @@ public final class CourseEnrollmentService {
         checkRep();
     }
 
+    /**
+     * Returns every course taken by one student.
+     *
+     * @param student the student, must not be null
+     * @return an immutable list of the selected courses
+     * @throws InvalidEntityException if {@code student} is null
+     */
     public List<Course> getCoursesOfStudent(Student student) {
         requireEntity(student, "student");
         return enrollments.stream()
@@ -42,6 +84,13 @@ public final class CourseEnrollmentService {
                 .toList();
     }
 
+    /**
+     * Counts the students currently enrolled in a course.
+     *
+     * @param course the course, must not be null
+     * @return the number of enrollment records of that course
+     * @throws InvalidEntityException if {@code course} is null
+     */
     public int getEnrolledCount(Course course) {
         requireEntity(course, "course");
         return (int) enrollments.stream()
@@ -49,6 +98,14 @@ public final class CourseEnrollmentService {
                 .count();
     }
 
+    /**
+     * Tells whether the pair is already enrolled.
+     *
+     * @param student the student, must not be null
+     * @param course the course, must not be null
+     * @return true when a matching record exists
+     * @throws InvalidEntityException if an argument is null
+     */
     public boolean hasEnrolled(Student student, Course course) {
         requireEntity(student, "student");
         requireEntity(course, "course");
@@ -94,6 +151,11 @@ public final class CourseEnrollmentService {
         }
     }
 
+    /**
+     * Checks the class invariant; effective only when assertions are enabled.
+     *
+     * @throws AssertionError when a duplicate pair or an over-capacity course is detected
+     */
     void checkRep() {
         Set<String> pairs = new HashSet<>();
         for (EnrollmentRecord record : enrollments) {
