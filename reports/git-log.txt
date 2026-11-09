@@ -1,0 +1,8 @@
+*   2341fa6 merge: integrate refactored score manager into master
+|\  
+| * fc090d6 fix: use explicit UTF-8 charset and record static analysis results
+| * 91f7d13 test: cover average, descending sort, range validation and defensive copy
+| * 9c878a2 refactor: split console I/O into ScoreApp and validate input fail-fast
+| * e03667e build: adapt Checkstyle 10.x properties and extract StudentScoreManager with constants
+|/  
+* 766530d chore: import raw student score program and course Checkstyle config
