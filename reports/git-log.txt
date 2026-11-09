@@ -1,0 +1,5 @@
+ad6be58 2026-11-09 build: verify Checkstyle and SpotBugs findings drop after refactoring
+dfc6266 2026-11-09 test: keep the legacy safety net and add boundary cases suggested by AI review
+79b4a68 2026-11-09 docs: complete contract Javadoc with requires/effects/modifies/throws tags
+0ab5ce8 2026-11-09 refactor: rename add/remove to enroll/drop, extract guard helpers and move capacity rule into Course
+1c4052d 2026-11-09 chore: import smelly baseline EnrollSvc and the Lab3 entity model
