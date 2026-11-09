@@ -1,0 +1,3 @@
+开始检查……
+[WARN] /Users/akay1121/Downloads/Experiments/experiment 4/src/main/java/refactor/clean/CourseEnrollmentService.java:9:1: 导入组之前的额外空行 'refactor.common.Course'。 [ImportOrder]
+检查完成。
