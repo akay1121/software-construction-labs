@@ -25,7 +25,7 @@ Thanks for using JUnit! Support its development at https://junit.org/sponsoring
 [36m├─[0m [36mJUnit Vintage[0m [32m✔[0m
 [36m└─[0m [36mJUnit Platform Suite[0m [32m✔[0m
 
-Test run finished after 42 ms
+Test run finished after 40 ms
 [         5 containers found      ]
 [         0 containers skipped    ]
 [         5 containers started    ]

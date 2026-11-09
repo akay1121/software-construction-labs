@@ -1,0 +1,4 @@
+assertions enabled: false
+after Alice: 1 / 1
+after Bob: 2 / 1 (invariant broken, no assertion!)
+courses of Alice: [Software Construction (C001, 3 credits, capacity 1)]
