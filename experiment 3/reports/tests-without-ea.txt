@@ -1,0 +1,91 @@
+
+Thanks for using JUnit! Support its development at https://junit.org/sponsoring
+
+[36m╷[0m
+[36m├─[0m [36mJUnit Jupiter[0m [32m✔[0m
+[36m│  ├─[0m [36mCourseEnrollmentServiceContractTest[0m [32m✔[0m
+[36m│  │  ├─[0m [34mnormalEnrollmentAndDrop()[0m [32m✔[0m
+[36m│  │  ├─[0m [34mdropWithoutEnrollmentIsSilentlyIgnored()[0m [32m✔[0m
+[36m│  │  ├─[0m [31mmanuallyBrokenInvariantIsCaughtByCheckRep()[0m [31m✘[0m [31mExpected java.lang.AssertionError to be thrown, but nothing was thrown.[0m
+[36m│  │  ├─[0m [34mnullStudentIsRejectedByTheEntityLayer()[0m [32m✔[0m
+[36m│  │  ├─[0m [34mcourseWithZeroCapacityViolatesTheEntityInvariant()[0m [32m✔[0m
+[36m│  │  ├─[0m [34mnullCourseIsRejectedByTheEntityLayer()[0m [32m✔[0m
+[36m│  │  ├─[0m [31mduplicateEnrollmentBreaksTheInvariant()[0m [31m✘[0m [31mExpected java.lang.AssertionError to be thrown, but nothing was thrown.[0m
+[36m│  │  └─[0m [31menrollingBeyondCapacityBreaksTheInvariant()[0m [31m✘[0m [31mExpected java.lang.AssertionError to be thrown, but nothing was thrown.[0m
+[36m│  └─[0m [36mCourseEnrollmentServiceDefensiveTest[0m [32m✔[0m
+[36m│     ├─[0m [34mnormalEnrollmentAndDrop()[0m [32m✔[0m
+[36m│     ├─[0m [31mmanuallyBrokenInvariantIsCaughtByCheckRep()[0m [31m✘[0m [31mExpected java.lang.AssertionError to be thrown, but nothing was thrown.[0m
+[36m│     ├─[0m [34mnullStudentIsRejected()[0m [32m✔[0m
+[36m│     ├─[0m [34mcourseWithZeroCapacityViolatesTheEntityInvariant()[0m [32m✔[0m
+[36m│     ├─[0m [34menrollingWhenCourseIsFullIsRejected()[0m [32m✔[0m
+[36m│     ├─[0m [34mdropWithoutEnrollmentIsRejected()[0m [32m✔[0m
+[36m│     ├─[0m [34mcapacityOneAcceptsExactlyOneStudent()[0m [32m✔[0m
+[36m│     ├─[0m [34mnullCourseIsRejected()[0m [32m✔[0m
+[36m│     └─[0m [34mduplicateEnrollmentIsRejected()[0m [32m✔[0m
+[36m├─[0m [36mJUnit Vintage[0m [32m✔[0m
+[36m└─[0m [36mJUnit Platform Suite[0m [32m✔[0m
+
+Failures (4):
+  JUnit Jupiter:CourseEnrollmentServiceContractTest:manuallyBrokenInvariantIsCaughtByCheckRep()
+    MethodSource [className = 'reliability.contract.CourseEnrollmentServiceContractTest', methodName = 'manuallyBrokenInvariantIsCaughtByCheckRep', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.lang.AssertionError to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+       reliability.contract.CourseEnrollmentServiceContractTest.manuallyBrokenInvariantIsCaughtByCheckRep(CourseEnrollmentServiceContractTest.java:99)
+       java.base/java.lang.reflect.Method.invoke(Method.java:569)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  JUnit Jupiter:CourseEnrollmentServiceContractTest:duplicateEnrollmentBreaksTheInvariant()
+    MethodSource [className = 'reliability.contract.CourseEnrollmentServiceContractTest', methodName = 'duplicateEnrollmentBreaksTheInvariant', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.lang.AssertionError to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+       reliability.contract.CourseEnrollmentServiceContractTest.duplicateEnrollmentBreaksTheInvariant(CourseEnrollmentServiceContractTest.java:58)
+       java.base/java.lang.reflect.Method.invoke(Method.java:569)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  JUnit Jupiter:CourseEnrollmentServiceContractTest:enrollingBeyondCapacityBreaksTheInvariant()
+    MethodSource [className = 'reliability.contract.CourseEnrollmentServiceContractTest', methodName = 'enrollingBeyondCapacityBreaksTheInvariant', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.lang.AssertionError to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+       reliability.contract.CourseEnrollmentServiceContractTest.enrollingBeyondCapacityBreaksTheInvariant(CourseEnrollmentServiceContractTest.java:67)
+       java.base/java.lang.reflect.Method.invoke(Method.java:569)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  JUnit Jupiter:CourseEnrollmentServiceDefensiveTest:manuallyBrokenInvariantIsCaughtByCheckRep()
+    MethodSource [className = 'reliability.defensive.CourseEnrollmentServiceDefensiveTest', methodName = 'manuallyBrokenInvariantIsCaughtByCheckRep', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.lang.AssertionError to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+       reliability.defensive.CourseEnrollmentServiceDefensiveTest.manuallyBrokenInvariantIsCaughtByCheckRep(CourseEnrollmentServiceDefensiveTest.java:106)
+       java.base/java.lang.reflect.Method.invoke(Method.java:569)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+Test run finished after 41 ms
+[         5 containers found      ]
+[         0 containers skipped    ]
+[         5 containers started    ]
+[         0 containers aborted    ]
+[         5 containers successful ]
+[         0 containers failed     ]
+[        17 tests found           ]
+[         0 tests skipped         ]
+[        17 tests started         ]
+[         0 tests aborted         ]
+[        13 tests successful      ]
+[         4 tests failed          ]
+
+
+WARNING: Delegated to the 'execute' command.
+         This behaviour has been deprecated and will be removed in a future release.
+         Please use the 'execute' command directly.
