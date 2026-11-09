@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+        "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<!--
+Software Construction Lab 1 CheckStyle Config
+Rule set: Google Java Style (simplified for lab)
+Target: naming, javadoc, whitespace, magic number, formatting
+-->
+<module name="Checker">
+    <property name="charset" value="UTF-8"/>
+    <property name="severity" value="warning"/>
+
+    <!-- 禁止tab，只能空格 -->
+    <module name="FileTabCharacter">
+        <property name="eachLine" value="true"/>
+    </module>
+
+    <!-- 单行最长100字符 -->
+    <module name="LineLength">
+        <property name="max" value="100"/>
+        <property name="ignorePattern" value="^package|^import"/>
+    </module>
+
+    <!-- 魔法数字检测（实验重点） -->
+    <module name="MagicNumber">
+        <property name="ignoreHashCodeMethod" value="true"/>
+        <property name="ignoreAnnotation" value="true"/>
+        <property name="ignoreZero" value="true"/>
+        <property name="ignoreOne" value="true"/>
+    </module>
+
+    <module name="TreeWalker">
+        <!-- 类、接口文件名必须匹配外层类名 -->
+        <module name="OuterTypeFilename"/>
+
+        <!-- 命名规范：类大驼峰、方法小驼峰、常量全大写 -->
+        <module name="PackageName"/>
+        <module name="TypeName"/>
+        <module name="MethodName"/>
+        <module name="ParameterName"/>
+        <module name="LocalFinalVariableName"/>
+        <module name="LocalVariableName"/>
+        <module name="StaticVariableName"/>
+        <module name="MemberName"/>
+        <module name="ConstantName"/>
+
+        <!-- 导入规范，禁止 * import -->
+        <module name="AvoidStarImport"/>
+        <module name="UnusedImports"/>
+        <module name="ImportOrder">
+            <property name="separateLineBetweenGroups" value="true"/>
+            <property name="sortImportsInGroupAlphabetically" value="true"/>
+        </module>
+
+        <!-- Javadoc 注释（实验重点：类和public方法要有注释） -->
+        <module name="JavadocType">
+            <property name="authorFormat" value="\S"/>
+        </module>
+        <module name="JavadocMethod">
+            <property name="allowMissingParamTags" value="false"/>
+            <property name="allowMissingReturnTag" value="false"/>
+            <property name="allowMissingThrowsTags" value="true"/>
+        </module>
+
+        <!-- 空白、括号格式 -->
+        <module name="WhitespaceAfter"/>
+        <module name="WhitespaceAround"/>
+        <module name="ParenPad"/>
+        <module name="GenericWhitespace"/>
+
+        <!-- 多余括号、多余修饰符 -->
+        <module name="UnnecessaryParentheses"/>
+        <module name="RedundantModifier"/>
+
+        <!-- 空代码块检测 -->
+        <module name="EmptyBlock">
+            <property name="option" value="TEXT"/>
+        </module>
+
+        <!-- 方法长度限制，防止全部堆在main里（实验重点） -->
+        <module name="MethodLength">
+            <property name="max" value="30"/>
+        </module>
+
+        <!-- 变量声明分开写，不要一行多个变量 -->
+        <module name="MultipleVariableDeclarations"/>
+
+        <!-- 修饰符顺序 public static final -->
+        <module name="ModifierOrder"/>
+    </module>
+</module>
