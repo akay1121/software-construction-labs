@@ -1,0 +1,28 @@
+=== 1. Grade rank of every record ===
+Alice (S001) | Software Construction (C001, 3 credits) | 88 | A
+Alice (S001) | Algorithm (C002, 4 credits) | 76 | B
+Bob (S002) | Software Construction (C001, 3 credits) | 55 | D
+Bob (S002) | Algorithm (C002, 4 credits) | 62 | C
+Charlie (S003) | Software Construction (C001, 3 credits) | 92 | A
+Charlie (S003) | Algorithm (C002, 4 credits) | 81 | B
+David (S004) | Software Construction (C001, 3 credits) | 48 | D
+David (S004) | Algorithm (C002, 4 credits) | 73 | B
+Eve (S005) | Software Construction (C001, 3 credits) | 66 | C
+Eve (S005) | Algorithm (C002, 4 credits) | 59 | D
+=== 2. Failed records (rank D) ===
+Bob (S002) | Software Construction (C001, 3 credits) | 55 | D
+David (S004) | Software Construction (C001, 3 credits) | 48 | D
+Eve (S005) | Algorithm (C002, 4 credits) | 59 | D
+=== 3. Weighted average of passing records per course ===
+Software Construction (C001, 3 credits) | 82.00
+Algorithm (C002, 4 credits) | 73.00
+=== 4. Student with the highest total score ===
+Charlie (S003) | total 173
+=== 5. Passing records sorted by raw score (desc) ===
+Charlie | Software Construction | 92 | A
+Alice | Software Construction | 88 | A
+Charlie | Algorithm | 81 | B
+Alice | Algorithm | 76 | B
+David | Algorithm | 73 | B
+Eve | Software Construction | 66 | C
+Bob | Algorithm | 62 | C
