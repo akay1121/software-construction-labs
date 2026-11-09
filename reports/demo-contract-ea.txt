@@ -1,0 +1,5 @@
+assertions enabled: true
+after Alice: 1 / 1
+AssertionError: course C001 over capacity: 2
+after Bob: 2 / 1
+courses of Alice: [Software Construction (C001, 3 credits, capacity 1)]
