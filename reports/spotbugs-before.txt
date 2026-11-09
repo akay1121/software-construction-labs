@@ -1,0 +1,3 @@
+M B Nm: The class name JavaCourse6.test doesn't start with an upper case letter  At test.java:[lines 5-35]
+M D ICAST: Integral division result cast to double or float in JavaCourse6.test.main(String[])  At test.java:[line 18]
+H I Dm: Found reliance on default encoding in JavaCourse6.test.main(String[]): new java.util.Scanner(InputStream)  At test.java:[line 7]
